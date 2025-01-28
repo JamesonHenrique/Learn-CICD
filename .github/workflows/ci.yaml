@@ -17,6 +17,7 @@ jobs:
         java-version: ${{ matrix.java }}
         cache: 'maven'
     
+
     - name: Build with Maven
       run: mvn package 
     - name: Build with Maven
@@ -24,3 +25,4 @@ jobs:
 
     - name: Run tests
       run: mvn test
+      

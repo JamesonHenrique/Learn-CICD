@@ -10,9 +10,11 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
         cache: 'maven'
-       
+    - name: Mover para o diretório correto
+      run: cd Calculadora
+
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn package 
     - name: Build with Maven
       run: mvn clean install
 

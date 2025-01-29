@@ -7,38 +7,57 @@
     <groupId>com.jhcs</groupId>
     <artifactId>Calculadora</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <properties>
+                <sonar.projectKey>java-calc</sonar.projectKey>
+                <sonar.projectName>java-calc</sonar.projectName>
+                <sonar.host.url>http://localhost:9000</sonar.host.url>
+                <sonar.login>admin</sonar.login>
+                <sonar.password>12345</sonar.password>
+                <sonar.token>sqp_60c09371393b72a8d421197605fd1a968df11a0f</sonar.token>
+            </properties>
+        </profile>
+    </profiles>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-<dependencies>
-    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.11.4</version>
-        <scope>test</scope>
-    </dependency>
 
-</dependencies>
-<build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>3.2.0</version>
-            <configuration>
-                <archive>
-                    <manifest>
-                        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                        <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                        <mainClass>com.jhcs.Main</mainClass>
-                    </manifest>
-                </archive>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.11.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>4.0.0.4121</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <mainClass>com.jhcs.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
